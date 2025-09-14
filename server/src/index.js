@@ -1,0 +1,32 @@
+import express from "express";
+import config from "./config/env.config.js";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+
+//Custom Routes Import
+
+const app = express();
+const PORT = config.PORT;
+
+//Middlwares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: config.BASE_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
+app.get("/", (req, res) => {
+  res.send("API IS WORKING");
+});
+
+//Custom Apies
+
+app.listen(PORT, () => {
+  console.log(`Server is Running on ${PORT}`);
+});
