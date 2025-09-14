@@ -2,8 +2,10 @@ import express from "express";
 import config from "./config/env.config.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import connectDB from "./utils/mongoose.js";
 
 //Custom Routes Import
+import adminRouter from "./routes/admin.routes.js";
 
 const app = express();
 const PORT = config.PORT;
@@ -21,11 +23,14 @@ app.use(
   })
 );
 
+connectDB();
+
 app.get("/", (req, res) => {
   res.send("API IS WORKING");
 });
 
 //Custom Apies
+app.use("/api/v1/admin", adminRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is Running on ${PORT}`);
