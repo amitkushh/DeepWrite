@@ -21,7 +21,6 @@ export const adminLogin = async (req, res) => {
       token,
     });
   } catch (error) {
-    console.log("Error in Admin login", error);
     return res.status(500).json({
       success: false,
       message: "Internal server error",
