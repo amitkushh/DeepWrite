@@ -6,7 +6,7 @@ export const adminLogin = async (req, res) => {
     const { email, password } = req.body;
 
     //checking email and password match or not
-    
+
     if (email !== config.ADMIN_EMAIL || password !== config.ADMIN_PASSWORD) {
       return res.status(400).json({
         success: false,
