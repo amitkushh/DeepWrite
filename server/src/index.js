@@ -7,6 +7,7 @@ import connectDB from "./utils/mongoose.js";
 //Custom Routes Import
 import adminRouter from "./routes/admin.routes.js";
 import blogRouter from "./routes/blog.routes.js";
+import commentRouter from "./routes/comment.routes.js";
 
 const app = express();
 const PORT = config.PORT;
@@ -32,7 +33,8 @@ app.get("/", (req, res) => {
 
 //Custom Apies
 app.use("/api/v1/admin", adminRouter);
-app.use("/api/v1/blog", blogRouter)
+app.use("/api/v1/blog", blogRouter);
+app.use("/api/v1/comment", commentRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is Running on ${PORT}`);
