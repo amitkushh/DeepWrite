@@ -1,24 +1,4 @@
-const categories = [
-    {
-   text: "All",
-   link: "/"
-    },
-    {
-   text: "Startup",
-   link: "#startup"
-    },
-    {
-   text: "Technology",
-   link: "#technology"
-    },
-    {
-   text: "AI",
-   link: "#ai"
-    },
-    {
-   text: "Finance",
-   link: "#finance"
-    },
-]
+const categories = ["All", "Startup", "Technology", "AI", "Finance"];
 
-export default categories
+export default categories;
+

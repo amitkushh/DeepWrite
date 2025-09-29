@@ -1,10 +1,12 @@
 import { useState } from "react";
 import categories from "../constants/Category";
+import BlogCard from "./BlogCard";
+import blogdata from "../constants/BlogData";
 
 function BlogList() {
   const [menu, setMenu] = useState("All");
   return (
-    <div className="bg-white py-16 border-y border-[#bdbdbd]">
+    <div className="bg-white py-16 border-y border-[#bdbdbd] px-32">
       {/* Categories Section */}
       <div className="flex justify-center gap-4 relative">
         {categories.map((item) => (
@@ -15,7 +17,7 @@ function BlogList() {
                 menu === item && "bg-[#cccbcb]"
               }`}
             >
-              {item.text}
+              {item}
               {menu === item && (
                 <div className="absolute left-0 right-0 top-0 -z-1"></div>
               )}
@@ -25,7 +27,13 @@ function BlogList() {
       </div>
 
       {/* Blog Section */}
-      <div></div>
+      <div className="grid grid-cols-3 mt-10 gap-4">
+        {blogdata
+          .filter((blog) => (menu === "All" ? true : blog.category === menu))
+          .map((blog) => (
+            <BlogCard key={blog._id} blog={blog} />
+          ))}
+      </div>
     </div>
   );
 }

@@ -25,10 +25,11 @@ function Hero() {
             type="search"
             placeholder="Search"
             className="border-2 pl-4 outline-none py-3 w-full"
+            required
           />
-          <span className="bg-black text-white py-3 px-8 cursor-pointer border-2">
+          <button className="bg-black text-white py-3 px-8 cursor-pointer border-2">
             Search
-          </span>
+          </button>
         </form>
       </div>
     </div>

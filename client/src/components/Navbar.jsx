@@ -19,8 +19,11 @@ function Navbar() {
 
         {/* Button */}
         <div>
-          <button onClick={() => navigate("/admin")} className="bg-black text-white py-3 px-10 cursor-pointer flex justify-center items-center gap-1">
-            Login
+          <button
+            onClick={() => navigate("/admin")}
+            className="bg-black text-white py-3 px-10 cursor-pointer flex justify-center items-center gap-1"
+          >
+            Admin Login
             <RightArrowIcon />
           </button>
         </div>
